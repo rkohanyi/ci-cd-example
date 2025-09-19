@@ -27,15 +27,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: GHCR push image step
+      - name: GHCR build and push image step
         uses: docker/build-push-action@v6.18.0
         with:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}/hello:latest
-
-      - name: Build image step
-        uses: docker/build-push-action@v6.18.0
 
       - name: Goodbye step
         run: echo "Deployment Wofkflow Ended"
