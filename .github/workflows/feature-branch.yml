@@ -1,0 +1,22 @@
+name: Feature Branch Workflow
+
+on:
+  push:
+    branches:
+      - 'feat/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome step
+        run: echo "Feature Branch Wofkflow Starting"
+
+      - name: Checkout step
+        uses: actions/checkout@v5
+
+      - name: Build image step
+        uses: docker/build-push-action@v6.18.0
+
+      - name: Goodbye step
+        run: echo "Feature Branch Wofkflow Ended"
